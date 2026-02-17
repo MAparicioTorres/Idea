@@ -24,7 +24,6 @@ class Idea extends Model
     protected $attributes = [
         'links' => '[]',
         'status' => IdeaStatus::PENDING->value,
-
     ];
 
 
