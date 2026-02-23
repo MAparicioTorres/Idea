@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="overflow-y-hidden bg-background text-foreground ">
+<body class="bg-background text-foreground ">
     <x-layout.nav />
 
     <main class=" max-w-7xl mx-auto px-6 pb-10 ">{{ $slot }}</main>

@@ -26,6 +26,16 @@ class Idea extends Model
         'status' => IdeaStatus::PENDING->value,
     ];
 
+    public static function statusCounts(User $user)
+    {
+        $counts = $user->ideas()->selectRaw("status, count(*) AS count")->groupBy("status")->pluck('count', 'status');
+
+        return collect(IdeaStatus::cases())
+            ->mapWithKeys(fn($status) => [
+                $status->value => $counts->get($status->value, 0),
+            ])
+            ->put('all', $user->ideas()->count());
+    }
 
     public function user(): BelongsTo
     {

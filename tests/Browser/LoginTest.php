@@ -1,9 +1,8 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
-it('logs in an user', function () {
+it('logs in a user', function () {
 
     $user = User::factory()->create([
         'password' => 'password123!@#'
